@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "795411410379",
+    "firebase_url": "https://gothic-agility-256922.firebaseio.com",
+    "project_id": "gothic-agility-256922",
+    "storage_bucket": "gothic-agility-256922.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795411410379:android:f659ed496df04fe381da4e",
+        "android_client_info": {
+          "package_name": "waste.map"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795411410379-hns61s4htjl0b1j2icd5k4ev0ju4n8pb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "waste.map",
+            "certificate_hash": "fac2be3fecced87f769563c059fba72efc50b4d9"
+          }
+        },
+        {
+          "client_id": "795411410379-p4svj3n5melu9ckcorup2fssujo9k8e1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaGXn-k7MmMYnu6Qzcx7n2HqvwL5zfvB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795411410379-p4svj3n5melu9ckcorup2fssujo9k8e1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
