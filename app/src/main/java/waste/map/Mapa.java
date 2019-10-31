@@ -1,13 +1,11 @@
 package waste.map;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -25,50 +23,115 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+
 public class Mapa extends FragmentActivity implements OnMapReadyCallback {
+    private String filtro;
     String[] arregloJson;
     private GoogleMap mMap;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ListView lista_filtro_tipo;
+    private ArrayList<String> arregloLista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapa);
         arregloJson = new String[2];
+        lista_filtro_tipo = findViewById(R.id.vista_lista_filtro_tipo);
+        arregloLista = new ArrayList<>();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+        lista_filtro_tipo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                filtro = lista_filtro_tipo.getItemAtPosition(i).toString();
+                filtro();
+            }
+        });
+    }
+
+    public void filtro() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        db.collection("PuntosAcopio")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                 String Cadena = document.getData().get("Puntos").toString();
-                                try {
-                                    JSONObject json = new JSONObject(Cadena);
-                                    JSONArray arreglo = json.getJSONArray("Puntos");
-                                    for (int i = 0;i<arreglo.length();i++){
-                                        arregloJson = arreglo.getJSONObject(i).get("Ubicacion").toString().split(",");
-                                        Double coordenadaX = Double.valueOf(arregloJson[0].substring(1));
-                                        Double coordenadaY = Double.valueOf(arregloJson[1].substring(0,arregloJson[1].length()-1));
-                                        String nombrePuntero = arreglo.getJSONObject(i).getString("Nombre Punto de Recolección");
-                                        mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX,coordenadaY)).title(nombrePuntero));
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        } else {
+        if (filtro == null) {
+            final ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext()
+                    , R.layout.support_simple_spinner_dropdown_item, arregloLista);
+            mMap = googleMap;
+            db.collection("PuntosAcopio")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String Cadena = document.getData().get("Puntos").toString();
+                                    try {
+                                        JSONObject json = new JSONObject(Cadena);
+                                        JSONArray arreglo = json.getJSONArray("Puntos");
+                                        for (int i = 0; i < arreglo.length(); i++) {
+                                            arregloJson = arreglo.getJSONObject(i).get("Ubicacion").toString().split(",");
+                                            Double coordenadaX = Double.valueOf(arregloJson[0].substring(1));
+                                            Double coordenadaY = Double.valueOf(arregloJson[1].substring(0, arregloJson[1].length() - 1));
+                                            String nombrePuntero = arreglo.getJSONObject(i).getString("Nombre Punto de Recolección");
+                                            mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero));
+                                            if (arregloLista.contains(arreglo.getJSONObject(i).getString("Categoria residuo"))) {
+                                                continue;
+                                            } else {
+                                                adapter.add(arreglo.getJSONObject(i).getString("Categoria residuo"));
+                                            }
 
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } else {
+
+                            }
                         }
-                    }
-                });
-        // Add a marker in Sydney and move the camera
+                    });
+            lista_filtro_tipo.setAdapter(adapter);
+        } else if (filtro != null) {
+            mMap = googleMap;
+            mMap.clear();
+            mMap = googleMap;
+            db.collection("PuntosAcopio")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String Cadena = document.getData().get("Puntos").toString();
+
+                                    try {
+                                        JSONObject json = new JSONObject(Cadena);
+                                        JSONArray arreglo = json.getJSONArray("Puntos");
+                                        for (int i = 0; i < arreglo.length(); i++) {
+                                            if (arreglo.getJSONObject(i).getString("Categoria residuo").equals(filtro)) {
+                                                arregloJson = arreglo.getJSONObject(i).get("Ubicacion").toString().split(",");
+                                                Double coordenadaX = Double.valueOf(arregloJson[0].substring(1));
+                                                Double coordenadaY = Double.valueOf(arregloJson[1].substring(0, arregloJson[1].length() - 1));
+                                                String nombrePuntero = arreglo.getJSONObject(i).getString("Nombre Punto de Recolección");
+                                                mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero));
+                                            }
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } else {
+
+                            }
+                        }
+                    });
+        }
     }
 }
