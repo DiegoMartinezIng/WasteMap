@@ -1,5 +1,6 @@
 package waste.map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +11,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
-public class Mapa extends FragmentActivity implements OnMapReadyCallback {
+public class Mapa extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private String filtro;
     String[] arregloJson;
     private GoogleMap mMap;
@@ -40,7 +42,6 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         arregloJson = new String[2];
         lista_filtro_tipo = findViewById(R.id.vista_lista_filtro_tipo);
         arregloLista = new ArrayList<>();
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -98,10 +99,10 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
                         }
                     });
             lista_filtro_tipo.setAdapter(adapter);
+            mMap.setOnMarkerClickListener(this);
         } else if (filtro != null) {
             mMap = googleMap;
             mMap.clear();
-            mMap = googleMap;
             db.collection("PuntosAcopio")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -110,7 +111,6 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     String Cadena = document.getData().get("Puntos").toString();
-
                                     try {
                                         JSONObject json = new JSONObject(Cadena);
                                         JSONArray arreglo = json.getJSONArray("Puntos");
@@ -127,11 +127,51 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
                                         e.printStackTrace();
                                     }
                                 }
-                            } else {
-
                             }
                         }
                     });
+            mMap.setOnMarkerClickListener(this);
         }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        final String nombre_marcador_pulsado = marker.getTitle();
+        final JSONObject[] puntero_pulsado = new JSONObject[1];
+        db.collection("PuntosAcopio")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String Cadena = document.getData().get("Puntos").toString();
+                                try {
+                                    JSONObject json = new JSONObject(Cadena);
+                                    JSONArray arreglo = json.getJSONArray("Puntos");
+                                    for (int i = 0; i < arreglo.length(); i++) {
+                                        if (arreglo.getJSONObject(i).getString("Nombre Punto de Recolección").equals(nombre_marcador_pulsado)) {
+                                            Intent intent = new Intent(getApplicationContext(), Pop_up.class);
+                                            intent.putExtra("Coordenadas", arreglo.getJSONObject(i).getString("Ubicacion"));
+                                            intent.putExtra("Nombre", arreglo.getJSONObject(i).getString("Nombre Punto de Recolección"));
+                                            intent.putExtra("Direccion", arreglo.getJSONObject(i).getString("Dirección punto de recolección"));
+                                            intent.putExtra("Tipo", arreglo.getJSONObject(i).getString("Tipo Residuo"));
+                                            intent.putExtra("Persona", arreglo.getJSONObject(i).getString("Persona Contacto"));
+                                            intent.putExtra("Nombre_programa", arreglo.getJSONObject(i).getString("Nombre Programa Posconsumo"));
+                                            intent.putExtra("Horario", arreglo.getJSONObject(i).getString("Horario"));
+                                            intent.putExtra("Correo", arreglo.getJSONObject(i).getString("Correo electrónico"));
+                                            intent.putExtra("Categoria", arreglo.getJSONObject(i).getString("Categoria residuo"));
+                                            startActivity(intent);
+                                            break;
+                                        }
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                });
+        return false;
     }
 }
