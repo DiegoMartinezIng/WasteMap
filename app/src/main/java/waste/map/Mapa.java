@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -35,9 +36,11 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ListView lista_filtro_tipo;
     private ArrayList<String> arregloLista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_mapa);
         arregloJson = new String[2];
         lista_filtro_tipo = findViewById(R.id.vista_lista_filtro_tipo);
@@ -52,6 +55,10 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
                 filtro();
             }
         });
+    }
+    public void noticias(View view){
+        Intent intent = new Intent(getApplicationContext(),Noticias.class);
+        startActivity(intent);
     }
 
     public void filtro() {
