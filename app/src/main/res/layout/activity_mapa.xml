@@ -47,6 +47,7 @@
                 android:layout_height="49dp"
                 android:layout_marginBottom="16dp"
                 android:background="#D6F779"
+                android:onClick="pqr"
                 android:text="PQR"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -61,6 +61,11 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
         startActivity(intent);
     }
 
+    public void pqr(View view){
+        Intent intent = new Intent(getApplicationContext(),pqr.class);
+        startActivity(intent);
+    }
+
     public void filtro() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

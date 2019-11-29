@@ -4,4 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pqr"/>
+    tools:context=".pqr">
+
+
+    <EditText
+        android:id="@+id/ediTextNombre"
+        android:layout_width="287dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:autoSizeMinTextSize="50sp"
+        android:padding="8dp"
+        android:text="Nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ediTextCorreo"
+        android:layout_width="287dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="124dp"
+        android:autoSizeMinTextSize="50sp"
+        android:padding="8dp"
+        android:text="Correo Electronico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
