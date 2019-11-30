@@ -19,14 +19,18 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Nombre:" />
+            android:text="Nombre:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_nombre"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,14 +45,18 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Direccion:" />
+            android:text="Direccion:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_direccion"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,14 +71,17 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Tipo:" />
+            android:text="Tipo:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_tipo"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000" />
     </LinearLayout>
 
     <LinearLayout
@@ -85,14 +96,18 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Persona de contacto:" />
+            android:text="Persona de contacto:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_persona"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -107,14 +122,18 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Nombre del programa:" />
+            android:text="Nombre del programa:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_nombre_programa"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -129,14 +148,18 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Horario:" />
+            android:text="Horario:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_horario"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -151,14 +174,18 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Correo:" />
+            android:text="Correo:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_correo"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -173,18 +200,18 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Categoria:" />
+            android:text="Categoria:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/texto_categoria"
             android:layout_width="176dp"
             android:layout_height="39dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:orientation="horizontal" />
 </LinearLayout>

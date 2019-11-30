@@ -57,6 +57,11 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
             }
         });
     }
+
+    public void AbrirApp(View view) {
+        Intent launcher = getPackageManager().getLaunchIntentForPackage("com.mygdx.juego");
+        startActivity(launcher);
+    }
     public void noticias(View view){
         Intent intent = new Intent(getApplicationContext(),Noticias.class);
         startActivity(intent);

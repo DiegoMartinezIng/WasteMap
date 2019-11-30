@@ -43,6 +43,7 @@
             android:layout_height="83dp"
             android:layout_marginEnd="40dp"
             android:background="@drawable/juego_icono"
+            android:onClick="AbrirApp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/vista_lista_filtro_tipo"

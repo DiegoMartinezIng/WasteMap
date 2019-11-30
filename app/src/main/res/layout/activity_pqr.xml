@@ -68,7 +68,7 @@
         android:layout_height="115dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/enviar_icono"
+        android:background="@drawable/enviaricono"
         android:onClick="enviar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -80,7 +80,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="52dp"
         android:text="Nombre:"
+        android:textColor="#000000"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,7 +93,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="84dp"
         android:text="Correo:"
+        android:textColor="#000000"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -102,7 +106,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="84dp"
         android:text="Celular"
+        android:textColor="#000000"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -113,7 +119,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="112dp"
         android:text="Dirreccion : "
+        android:textColor="#000000"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -124,7 +132,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="72dp"
         android:text="Comentarios : "
+        android:textColor="#000000"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
