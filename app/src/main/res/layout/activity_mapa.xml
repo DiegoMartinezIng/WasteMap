@@ -29,29 +29,32 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="103dp"
-                android:layout_height="47dp"
-                android:layout_marginTop="48dp"
+                android:layout_width="182dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="44dp"
                 android:backgroundTint="#D6F183"
                 android:onClick="noticias"
                 android:text="Noticias"
                 app:layout_constraintBottom_toTopOf="@+id/button4"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.304"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="87dp"
-                android:layout_height="49dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="174dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="60dp"
                 android:background="#D6F779"
                 android:onClick="pqr"
                 android:text="PQR"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.258"
                 app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
