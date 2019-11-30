@@ -28,8 +28,6 @@ public class Pop_up extends AppCompatActivity {
         horario_texto = findViewById(R.id.texto_horario);
         correo_texto = findViewById(R.id.texto_correo);
         categoria_texto = findViewById(R.id.texto_categoria);
-
-
         nombre_texto.setText(getIntent().getStringExtra("Nombre"));
         direccion_texto.setText(getIntent().getStringExtra("Direccion"));
         tipo_texto.setText(getIntent().getStringExtra("Tipo"));
@@ -42,6 +40,6 @@ public class Pop_up extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(medidaVentana);
         int ancho = medidaVentana.widthPixels;
         int alto = medidaVentana.heightPixels;
-        getWindow().setLayout((int) (ancho * 0.8), (int) (alto * 0.75));
+        getWindow().setLayout((int) (ancho * 0.8), (int) (alto * 0.7));
     }
 }

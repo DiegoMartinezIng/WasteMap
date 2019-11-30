@@ -13,7 +13,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Noticias"></activity>
         <activity android:name=".pqr" />
-        <activity android:name=".Pop_up" />
+        <activity
+            android:name=".Pop_up"
+            android:theme="@style/AppTheme.TemaPopup" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
