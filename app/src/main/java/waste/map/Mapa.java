@@ -1,16 +1,16 @@
 package waste.map;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -61,8 +61,8 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
         startActivity(intent);
     }
 
-    public void pqr(View view){
-        Intent intent = new Intent(getApplicationContext(),pqr.class);
+    public void pqr(View view) {
+        Intent intent = new Intent(getApplicationContext(), pqr.class);
         startActivity(intent);
     }
 
@@ -88,12 +88,30 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
                                     try {
                                         JSONObject json = new JSONObject(Cadena);
                                         JSONArray arreglo = json.getJSONArray("Puntos");
+                                        LatLng marcador = null;
                                         for (int i = 0; i < arreglo.length(); i++) {
                                             arregloJson = arreglo.getJSONObject(i).get("Ubicacion").toString().split(",");
                                             Double coordenadaX = Double.valueOf(arregloJson[0].substring(1));
                                             Double coordenadaY = Double.valueOf(arregloJson[1].substring(0, arregloJson[1].length() - 1));
                                             String nombrePuntero = arreglo.getJSONObject(i).getString("Nombre Punto de Recolección");
-                                            mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero));
+                                            String tipo = arreglo.getJSONObject(i).getString("Categoria residuo");
+                                            marcador = new LatLng(coordenadaX, coordenadaY);
+                                            if (tipo.contains("Plaguicidas")) {
+                                                mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.plaguicidaicono)));
+                                            }
+                                            if (tipo.contains("Bombillas")) {
+                                                mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.bombillaicono)));
+                                            }
+                                            if (tipo.contains("Neveras")) {
+                                                mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.neveraicono)));
+                                            }
+                                            if (tipo.contains("Baterias")) {
+                                                mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.bateriaplomoicono)));
+                                            }
+                                            if (tipo.contains("Llantas")) {
+                                                mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.llantaicono)));
+
+                                            }
                                             if (arregloLista.contains(arreglo.getJSONObject(i).getString("Categoria residuo"))) {
                                                 continue;
                                             } else {
@@ -101,6 +119,7 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
                                             }
 
                                         }
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcador, 10));
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -126,15 +145,34 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
                                     try {
                                         JSONObject json = new JSONObject(Cadena);
                                         JSONArray arreglo = json.getJSONArray("Puntos");
+                                        LatLng marcador = null;
                                         for (int i = 0; i < arreglo.length(); i++) {
                                             if (arreglo.getJSONObject(i).getString("Categoria residuo").equals(filtro)) {
                                                 arregloJson = arreglo.getJSONObject(i).get("Ubicacion").toString().split(",");
                                                 Double coordenadaX = Double.valueOf(arregloJson[0].substring(1));
                                                 Double coordenadaY = Double.valueOf(arregloJson[1].substring(0, arregloJson[1].length() - 1));
                                                 String nombrePuntero = arreglo.getJSONObject(i).getString("Nombre Punto de Recolección");
-                                                mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero));
+                                                String tipo = arreglo.getJSONObject(i).getString("Categoria residuo");
+                                                marcador = new LatLng(coordenadaX, coordenadaY);
+
+                                                if (tipo.contains("Plaguicidas")) {
+                                                    mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.plaguicidaicono)));
+                                                }
+                                                if (tipo.contains("Bombillas")) {
+                                                    mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.bombillaicono)));
+                                                }
+                                                if (tipo.contains("Neveras")) {
+                                                    mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.neveraicono)));
+                                                }
+                                                if (tipo.contains("Baterías")) {
+                                                    mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.bateriaplomoicono)));
+                                                }
+                                                if (tipo.contains("Llantas")) {
+                                                    mMap.addMarker(new MarkerOptions().position(new LatLng(coordenadaX, coordenadaY)).title(nombrePuntero).icon(BitmapDescriptorFactory.fromResource(R.drawable.llantaicono)));
+                                                }
                                             }
                                         }
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcador, 10));
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }

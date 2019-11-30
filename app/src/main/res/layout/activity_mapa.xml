@@ -13,50 +13,62 @@
         android:layout_height="468dp"
         tools:context=".Mapa" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            android:background="@drawable/icono_noticias"
+            android:contentDescription="@string/app_name"
+            android:onClick="noticias"
+            app:layout_constraintStart_toEndOf="@+id/vista_lista_filtro_tipo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="96dp"
+            android:background="@drawable/pqr_icono"
+            android:onClick="pqr"
+            app:layout_constraintStart_toEndOf="@+id/vista_lista_filtro_tipo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="88dp"
+            android:layout_height="83dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/juego_icono"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/vista_lista_filtro_tipo"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
         <ListView
             android:id="@+id/vista_lista_filtro_tipo"
-            android:layout_width="206dp"
-            android:layout_height="match_parent" />
+            android:layout_width="213dp"
+            android:layout_height="206dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="208dp"
+            android:layout_height="52dp"
+            android:text="Filtro por tipo"
+            android:textAlignment="gravity"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/vista_lista_filtro_tipo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="182dp"
-                android:layout_height="53dp"
-                android:layout_marginTop="44dp"
-                android:backgroundTint="#D6F183"
-                android:onClick="noticias"
-                android:text="Noticias"
-                app:layout_constraintBottom_toTopOf="@+id/button4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.304"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="174dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="60dp"
-                android:background="#D6F779"
-                android:onClick="pqr"
-                android:text="PQR"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.258"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </LinearLayout>
 </LinearLayout>
