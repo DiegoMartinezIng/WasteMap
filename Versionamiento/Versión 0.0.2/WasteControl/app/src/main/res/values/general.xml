@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCQcHsmMnHcejV4JADh8gCvCwLLNAbiWjc</string>
+    <string name="firebase_PROYECT_ID">waste-control-84129</string>
+    <string name="firebase_API_KEY">AIzaSyA-aTdGaoQX0sQjG3NZVFvrBFC5xFLJgJo </string>
+    <string name="firebase_DATABASE_URL">https://waste-control-84129.firebaseio.com/</string>
+</resources>
