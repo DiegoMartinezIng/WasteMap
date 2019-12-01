@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.OpcionActivity">
+
+    <Button
+        android:id="@+id/btnPersonal"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:lines="2"
+        android:singleLine="false"
+        android:text="@string/personal"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/btnAprendeReciclar"
+        app:layout_constraintTop_toBottomOf="@+id/btnNotas" />
+
+    <Button
+        android:id="@+id/btnAprendeReciclar"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:onClick="buscarRef"
+        android:singleLine="false"
+        android:text="@string/aprende_a_reciclar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAcopios" />
+
+    <Button
+        android:id="@+id/btnNotas"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:lines="2"
+        android:onClick="buscar"
+        android:singleLine="false"
+        android:text="@string/notas"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/btnAcopios"
+        app:layout_constraintTop_toBottomOf="@+id/btnPuntosReciclaje" />
+
+    <Button
+        android:id="@+id/btnAcopios"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:onClick="crear"
+        android:text="@string/acopios"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUbicacion" />
+
+    <Button
+        android:id="@+id/btnPuntosReciclaje"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="84dp"
+        android:lines="2"
+        android:onClick="onClickPuntoReciclaje"
+        android:singleLine="false"
+        android:text="@string/puntos_reciclajes"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/btnUbicacion"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnUbicacion"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="84dp"
+        android:onClick="onClickUbicaion"
+        android:text="@string/ubicacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

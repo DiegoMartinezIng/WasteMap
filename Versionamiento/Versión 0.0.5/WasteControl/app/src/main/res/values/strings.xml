@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Waste Control</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_form_punto_recoleccion">Punto de recoleccion</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="puntos_reciclajes">Puntos Reciclajes</string>
+    <string name="ubicacion">Ubicacion</string>
+    <string name="acopios">Acopios</string>
+    <string name="notas">Notas</string>
+    <string name="aprende_a_reciclar">Aprende a Reciclar</string>
+    <string name="personal">Personal</string>
+    <string name="reciclar_es_vivir">Reciclar es vivir</string>
+    <string name="inicio">INICIO</string>
+    <string name="title_activity_ubicacion">Ubicacion</string>
+    <string name="launch_activity">Lanzando activity</string>
+    <string name="location_unknown">Ubicacion desconocida</string>
+    <string name="location_updates_label">Actualizacion de Ubicaciones</string>
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core functionality.</string>
+    <string name="settings">Configuraciones</string>
+    <string name="ok">OK</string>
+    <string name="request_location_updates">Request location updates</string>
+    <string name="remove_location_updates">Remove location updates</string>
+    <string name="location_updated">Location Updated: %1$s</string>
+    <string name="login_OK">Loggin OK</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="categoria_residuo">
+        <item>Baterías plomo acído</item>
+        <item>Bombillas</item>
+        <item>Computadores</item>
+        <item>Llantas</item>
+        <item>Medicamentos</item>
+        <item>Neveras</item>
+        <item>Pilas</item>
+        <item>Plaguicidas</item>
+    </string-array>
+    <string-array name="tipo_residuo">
+        <item>De todo tipo</item>
+        <item>Domésticas</item>
+        <item>fluorecentes compactas</item>
+        <item>Fluorecentes de todo tipo</item>
+        <item>O Impresoras</item>
+        <item>O Periféricos</item>
+        <item>Para buses</item>
+        <item>Para camiones</item>
+        <item>Para camionetas</item>
+        <item>Para carros</item>
+        <item>Para vehículos de carga</item>
+        <item>portátiles</item>
+        <item>Uso doméstico</item>
+        <item>Uso humano</item>
+    </string-array>
+</resources>
