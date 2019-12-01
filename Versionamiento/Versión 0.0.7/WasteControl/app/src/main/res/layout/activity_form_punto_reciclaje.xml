@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.FormPuntoRecoleccionActivity">
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="7dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblNombrePuntoRecoleccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtNombrePuntoRecoleccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="Nombre Punto de recolección"
+                            android:inputType="textPersonName"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblDireccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Direccion"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtDireccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:focusable="false"
+                            android:hint="Cl ## Av ## 123-456"
+                            android:inputType="none"
+                            android:singleLine="false"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblCiudad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ciudad"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtCiudad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:focusable="false"
+                            android:hint="Ciudad"
+                            android:inputType="none"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblDepartamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Departamento"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtDepartamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:focusable="false"
+                            android:hint="Departamento"
+                            android:inputType="none" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblPais"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pais"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtPais"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:focusable="false"
+                            android:hint="País"
+                            android:inputType="none"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblCategoriaResiduo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Categoria"
+                            android:textSize="24sp" />
+
+                        <fragment
+                            android:id="@+id/fgtCategoriaResiduo"
+                            android:name="com.example.wastecontrol.fragmen.CategoriaResiduoFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:layout="@layout/fragment_categoria_residuo" />
+
+                        <!--<EditText
+                            android:id="@+id/txtCategoriaResiduo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="Categoria residuo"
+                            android:inputType="textPersonName"/>-->
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblTipoResiduo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo"
+                            android:textSize="24sp" />
+
+                        <fragment
+                            android:id="@+id/fgtTipoResiduo"
+                            android:name="com.example.wastecontrol.fragmen.TipoResiduoFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:layout="@layout/fragment_tipo_residuo" />
+
+                        <!--<EditText
+                            android:id="@+id/txtTipoResiduo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="Tipo Residuo"
+                            android:inputType="textPersonName"/>-->
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblNombreResiduo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Residuo"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtNombreResiduo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="Nombre residuo"
+                            android:inputType="textPersonName"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblUbicacion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ubicacion"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtUbicacion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:focusable="false"
+                            android:hint="(4.6660134557395, -74.070765084121)"
+                            android:inputType="none"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblHorario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Horario"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtHorario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="LUN,MAR,MIE,JUE,VIE 08:00:00 a 17:00:00"
+                            android:inputType="text"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblProgramaPostconsumo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Programa"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtProgramaPostconsumo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="Nombre Programa Posconsumo"
+                            android:inputType="textPersonName"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblPersonaContacto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contacto"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtPersonaContacto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="Persona contacto"
+                            android:inputType="textPersonName"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lblEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:textSize="24sp" />
+
+                        <EditText
+                            android:id="@+id/txtEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="15"
+                            android:hint="my_email@company.com"
+                            android:inputType="textEmailAddress"/>
+                    </TableRow>
+
+                </TableLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btnAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickAceptar"
+                android:text="Aceptar" />
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickCancelar"
+                android:text="Cancelar" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

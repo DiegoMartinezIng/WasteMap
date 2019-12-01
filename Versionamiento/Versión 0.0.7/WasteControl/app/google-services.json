@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "37641614214",
+    "firebase_url": "https://waste-control-84129.firebaseio.com",
+    "project_id": "waste-control-84129",
+    "storage_bucket": "waste-control-84129.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37641614214:android:1ceb5fccd3604cb042f207",
+        "android_client_info": {
+          "package_name": "com.example.wastecontrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37641614214-5aioluop3ackrmtmmhi20ih8s3vvh30p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wastecontrol",
+            "certificate_hash": "06d10ae3b6811b2436555d29b596637c359f7efb"
+          }
+        },
+        {
+          "client_id": "37641614214-u8l2auaqa6h2459j1couvdufie8v4n74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyLkVlsgKQGSo0rKiBlApbuYS5_P57Q8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37641614214-u8l2auaqa6h2459j1couvdufie8v4n74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
